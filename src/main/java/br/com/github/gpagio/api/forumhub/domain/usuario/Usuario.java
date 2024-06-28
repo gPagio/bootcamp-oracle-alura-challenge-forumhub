@@ -30,10 +30,10 @@ public class Usuario implements UserDetails {
     private String email;
     private String senha;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Topico> topicos;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Resposta> respostas;
 
     @Override
@@ -69,9 +69,5 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public static Usuario getUsuarioLogado() {
-        return (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 }

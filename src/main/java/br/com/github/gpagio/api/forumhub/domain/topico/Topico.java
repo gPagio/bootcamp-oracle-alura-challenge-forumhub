@@ -45,4 +45,12 @@ public class Topico {
     @OneToMany(mappedBy = "topico", fetch = FetchType.LAZY)
     private List<Resposta> respostas;
 
+    public Topico(DadosTopicoPostagem dados, Usuario usuario, Curso curso) {
+        this.titulo = dados.titulo().trim();
+        this.mensagem = dados.mensagem().trim();
+        this.dataCriacao = LocalDateTime.now();
+        this.status = StatusTopico.NAO_RESOLVIDO;
+        this.usuario = usuario;
+        this.curso = curso;
+    }
 }

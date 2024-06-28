@@ -1,5 +1,6 @@
 package br.com.github.gpagio.api.forumhub.infra.security;
 
+import br.com.github.gpagio.api.forumhub.domain.ValidacaoException;
 import br.com.github.gpagio.api.forumhub.domain.usuario.UsuarioRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
