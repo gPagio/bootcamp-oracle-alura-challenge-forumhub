@@ -1,6 +1,7 @@
 package br.com.github.gpagio.api.forumhub.domain.topico;
 
 import br.com.github.gpagio.api.forumhub.domain.curso.Curso;
+import br.com.github.gpagio.api.forumhub.domain.curso.DadosTopicoAtualizacao;
 import br.com.github.gpagio.api.forumhub.domain.resposta.Resposta;
 import br.com.github.gpagio.api.forumhub.domain.usuario.Usuario;
 import jakarta.persistence.*;
@@ -52,5 +53,11 @@ public class Topico {
         this.status = StatusTopico.NAO_RESOLVIDO;
         this.usuario = usuario;
         this.curso = curso;
+    }
+
+    public void atualizarInformacoes(DadosTopicoAtualizacao dados, Curso curso) {
+        if (dados.titulo() != null) this.titulo = dados.titulo().trim();
+        if (dados.mensagem() != null) this.mensagem = dados.mensagem().trim();
+        if (curso != null) this.curso = curso;
     }
 }
