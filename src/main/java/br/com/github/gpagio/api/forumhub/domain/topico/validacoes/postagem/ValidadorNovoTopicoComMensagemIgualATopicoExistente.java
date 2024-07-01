@@ -1,4 +1,4 @@
-package br.com.github.gpagio.api.forumhub.domain.topico.validacoes;
+package br.com.github.gpagio.api.forumhub.domain.topico.validacoes.postagem;
 
 import br.com.github.gpagio.api.forumhub.domain.ValidacaoException;
 import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoPostagem;

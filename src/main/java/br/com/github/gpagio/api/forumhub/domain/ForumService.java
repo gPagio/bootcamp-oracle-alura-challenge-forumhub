@@ -7,7 +7,8 @@ import br.com.github.gpagio.api.forumhub.domain.topico.DadosDetalhamentoTopico;
 import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoPostagem;
 import br.com.github.gpagio.api.forumhub.domain.topico.Topico;
 import br.com.github.gpagio.api.forumhub.domain.topico.TopicoRepository;
-import br.com.github.gpagio.api.forumhub.domain.topico.validacoes.ValidadorDePostagemDeTopico;
+import br.com.github.gpagio.api.forumhub.domain.topico.validacoes.atualizacao.ValidadorDeAtualizacaoDeTopico;
+import br.com.github.gpagio.api.forumhub.domain.topico.validacoes.postagem.ValidadorDePostagemDeTopico;
 import br.com.github.gpagio.api.forumhub.domain.usuario.AutenticacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,9 @@ public class ForumService {
     @Autowired
     private List<ValidadorDePostagemDeTopico> validadorDePostagemDeTopicos;
 
+    @Autowired
+    private List<ValidadorDeAtualizacaoDeTopico> validadorDeAtualizacaoDeTopicos;
+
     public DadosDetalhamentoTopico postar(DadosTopicoPostagem dados) {
         if (!cursoRepository.existsById(dados.idCurso())) throw new ValidacaoException("Nenhum curso cadastrado com o ID informado!");
 
@@ -39,7 +43,7 @@ public class ForumService {
         return new DadosDetalhamentoTopico(topico);
     }
 
-    public Object atualizar(Long id, DadosTopicoAtualizacao dados) {
+    public DadosDetalhamentoTopico atualizar(Long id, DadosTopicoAtualizacao dados) {
         if (!topicoRepository.existsById(id)) throw new ValidacaoException("Nenhum tópico encontrado com o ID informado!");
 
         Curso curso = null;
@@ -50,6 +54,8 @@ public class ForumService {
                 curso = cursoRepository.getReferenceById(dados.idCurso());
             }
         }
+
+        validadorDeAtualizacaoDeTopicos.forEach(validador -> validador.validar(dados));
 
         var topico = topicoRepository.getReferenceById(id);
         topico.atualizarInformacoes(dados, curso);
