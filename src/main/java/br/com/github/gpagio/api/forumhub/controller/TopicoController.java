@@ -60,4 +60,11 @@ public class TopicoController {
         var dadosDetalhamentoTopico = forumService.atualizar(id, dados);
         return ResponseEntity.ok(dadosDetalhamentoTopico);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity excluirTopico(@PathVariable Long id){
+        topicoRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
