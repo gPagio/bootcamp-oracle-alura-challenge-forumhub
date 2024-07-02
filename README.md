@@ -10,7 +10,7 @@ No [`último projeto`](https://github.com/gPagio/bootcamp-oracle-alura-challenge
 Os end points dessa API estão mapeados com o Swagger. Para acessar esse mapeamento, rode o projeto e entre em:
 
 ```
-http://localhost:8080/v3/api-docs
+http://localhost:8080/swagger-ui/index.html#/
 ```
 
 Dentre os end points, estpa listado abaixo as possibilidades disponibilizadas pelos mesmos:
