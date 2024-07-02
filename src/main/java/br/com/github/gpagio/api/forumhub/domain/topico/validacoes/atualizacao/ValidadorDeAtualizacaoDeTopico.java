@@ -4,6 +4,6 @@ import br.com.github.gpagio.api.forumhub.domain.curso.DadosTopicoAtualizacao;
 
 public interface ValidadorDeAtualizacaoDeTopico {
 
-    void validar(DadosTopicoAtualizacao dadosTopicoAtualizacao);
+    void validar(Long id, DadosTopicoAtualizacao dadosTopicoAtualizacao);
 
 }

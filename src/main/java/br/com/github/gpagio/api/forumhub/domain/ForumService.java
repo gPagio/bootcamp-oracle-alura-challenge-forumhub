@@ -55,7 +55,7 @@ public class ForumService {
             }
         }
 
-        validadorDeAtualizacaoDeTopicos.forEach(validador -> validador.validar(dados));
+        validadorDeAtualizacaoDeTopicos.forEach(validador -> validador.validar(id, dados));
 
         var topico = topicoRepository.getReferenceById(id);
         topico.atualizarInformacoes(dados, curso);

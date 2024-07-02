@@ -60,4 +60,8 @@ public class Topico {
         if (dados.mensagem() != null) this.mensagem = dados.mensagem().trim();
         if (curso != null) this.curso = curso;
     }
+
+    public void finalizarTopico() {
+        this.status = StatusTopico.RESOLVIDO;
+    }
 }

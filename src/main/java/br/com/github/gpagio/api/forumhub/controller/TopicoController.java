@@ -80,6 +80,15 @@ public class TopicoController {
         return ResponseEntity.ok(dadosDetalhamentoTopico);
     }
 
+    @PutMapping("/finalizar/{id}")
+    @Transactional
+    @Operation(summary = "Marcar Tópico Como Resolvido", description = "Marca o tópico como resolvido, indicando que o assunto foi concluído e impedindo novas respostas.")
+    public ResponseEntity finalizarTopico(@PathVariable Long id){
+        var topico = topicoRepository.getReferenceById(id);
+        topico.finalizarTopico();
+        return ResponseEntity.noContent().build();
+    }
+
     @DeleteMapping("/{id}")
     @Transactional
     @Operation(summary = "Excluir Tópico por ID", description = "Excluir um tópico selecionando o mesmo pelo ID.")
