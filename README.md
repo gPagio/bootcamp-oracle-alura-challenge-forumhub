@@ -13,16 +13,17 @@ Os end points dessa API estão mapeados com o Swagger. Para acessar esse mapeame
 http://localhost:8080/swagger-ui/index.html#/
 ```
 
-Dentre os end points, estpa listado abaixo as possibilidades disponibilizadas pelos mesmos:
+Dentre os end points, está listado abaixo as possibilidades disponibilizadas pelos mesmos:
 
-1. Fazer Login
-1. Postar Topico
+1. Realizar Login
+1. Postar Tópico
 1. Cadastrar Curso
-1. Listar Todos os Tópicos
+1. Listar Todos os Tópicos Postados
 1. Listar Todos os Tópicos por Curso e Ano de Publicação
-1. Listar Tópico Específico
-1. Deletar Tópico Específico
-1. Atualizar Tópico Específico
+1. Listar Tópico por ID
+1. Excluir Tópico por ID
+1. Atualizar/Editar Tópico por ID
+1. Marcar Tópico Como Resolvido
 
 ## 📌 Dependências
 Para o correto funcionamento do Fórum Hub, é necessário realizar a instalação das dependências abaixo. Clique no hyperlink em cada uma delas para ir a respectiva página de downloads.
