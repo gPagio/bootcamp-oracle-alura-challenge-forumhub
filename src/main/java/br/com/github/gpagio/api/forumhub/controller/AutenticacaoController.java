@@ -4,6 +4,8 @@ import br.com.github.gpagio.api.forumhub.domain.usuario.DadosAutenticacao;
 import br.com.github.gpagio.api.forumhub.domain.usuario.Usuario;
 import br.com.github.gpagio.api.forumhub.infra.security.DadosTokenJWT;
 import br.com.github.gpagio.api.forumhub.infra.security.TokenService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
+@Tag(name = "Autenticação/Login")
 public class AutenticacaoController {
 
     @Autowired
@@ -25,6 +28,7 @@ public class AutenticacaoController {
     private TokenService tokenService;
 
     @PostMapping
+    @Operation(summary = "Realizar Login", description = "Gera um Token JWT para ser enviado junto com as demais requisições da API. O Token JWT se responsabiliza por autenticar as requisições.")
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados){
         System.out.println(dados);
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.email(), dados.senha());
