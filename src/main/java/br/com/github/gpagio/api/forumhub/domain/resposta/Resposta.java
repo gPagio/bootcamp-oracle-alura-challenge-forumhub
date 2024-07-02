@@ -1,6 +1,7 @@
 package br.com.github.gpagio.api.forumhub.domain.resposta;
 
 import br.com.github.gpagio.api.forumhub.domain.topico.Topico;
+import br.com.github.gpagio.api.forumhub.domain.usuario.AutenticacaoService;
 import br.com.github.gpagio.api.forumhub.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,4 +37,17 @@ public class Resposta {
     private Usuario usuario;
 
     private String solucao;
+
+    public Resposta(Topico topico, DadosRespostaPostagem dados) {
+        this.mensagem = dados.mensagem().trim();
+        this.topico = topico;
+        this.dataCriacao = LocalDateTime.now();
+        this.usuario = AutenticacaoService.getUsuarioLogado();
+        this.solucao = dados.solucao().trim();
+    }
+
+    public void atualizar(DadosRespostaAtualizacao dados){
+        if (dados.mensagem() != null) this.mensagem = dados.mensagem();
+        if (dados.solucao() != null) this.solucao = dados.solucao();
+    }
 }

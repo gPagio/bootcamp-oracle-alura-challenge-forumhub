@@ -2,7 +2,7 @@ package br.com.github.gpagio.api.forumhub.domain;
 
 import br.com.github.gpagio.api.forumhub.domain.curso.Curso;
 import br.com.github.gpagio.api.forumhub.domain.curso.CursoRepository;
-import br.com.github.gpagio.api.forumhub.domain.curso.DadosTopicoAtualizacao;
+import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoAtualizacao;
 import br.com.github.gpagio.api.forumhub.domain.topico.DadosDetalhamentoTopico;
 import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoPostagem;
 import br.com.github.gpagio.api.forumhub.domain.topico.Topico;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ForumService {
+public class TopicoService {
 
     @Autowired
     private CursoRepository cursoRepository;

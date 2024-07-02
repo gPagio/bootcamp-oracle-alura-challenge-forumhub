@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidadorNovoTopicoComTituloIgualATopicoExistente implements ValidadorDePostagemDeTopico {
+public class ValidadorNovoTopicoMensagemRepetida implements ValidadorDePostagemDeTopico{
 
     @Autowired
     private TopicoRepository topicoRepository;
 
     @Override
     public void validar(DadosTopicoPostagem dadosTopicoPostagem) {
-        if (topicoRepository.existsByTituloIgnoreCase(dadosTopicoPostagem.titulo().trim())) throw new ValidacaoException("Já existe um tópico criado com esse título!");
+        if (topicoRepository.existsByMensagemIgnoreCase(dadosTopicoPostagem.mensagem().trim())) throw new ValidacaoException("Já existe um tópico criado com essa mensagem!");
     }
 }

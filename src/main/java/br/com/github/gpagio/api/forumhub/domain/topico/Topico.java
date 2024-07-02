@@ -1,7 +1,6 @@
 package br.com.github.gpagio.api.forumhub.domain.topico;
 
 import br.com.github.gpagio.api.forumhub.domain.curso.Curso;
-import br.com.github.gpagio.api.forumhub.domain.curso.DadosTopicoAtualizacao;
 import br.com.github.gpagio.api.forumhub.domain.resposta.Resposta;
 import br.com.github.gpagio.api.forumhub.domain.usuario.Usuario;
 import jakarta.persistence.*;

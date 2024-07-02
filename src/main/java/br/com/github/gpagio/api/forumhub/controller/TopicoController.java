@@ -1,7 +1,7 @@
 package br.com.github.gpagio.api.forumhub.controller;
 
-import br.com.github.gpagio.api.forumhub.domain.ForumService;
-import br.com.github.gpagio.api.forumhub.domain.curso.DadosTopicoAtualizacao;
+import br.com.github.gpagio.api.forumhub.domain.TopicoService;
+import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoAtualizacao;
 import br.com.github.gpagio.api.forumhub.domain.topico.DadosDetalhamentoTopico;
 import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoPostagem;
 import br.com.github.gpagio.api.forumhub.domain.topico.TopicoRepository;
@@ -29,7 +29,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class TopicoController {
 
     @Autowired
-    private ForumService forumService;
+    private TopicoService topicoService;
 
     @Autowired
     private TopicoRepository topicoRepository;
@@ -38,7 +38,7 @@ public class TopicoController {
     @Transactional
     @Operation(summary = "Postar Tópico", description = "Realiza a publicação de um tópico no fórum.")
     public ResponseEntity postar(@RequestBody @Valid DadosTopicoPostagem dados, UriComponentsBuilder uriBuilder){
-        var dadosDetalhamentoTopico = forumService.postar(dados);
+        var dadosDetalhamentoTopico = topicoService.postar(dados);
         var uri = uriBuilder.path("/topicos/{id}").buildAndExpand(dadosDetalhamentoTopico.id()).toUri();
         return ResponseEntity.created(uri).body(dadosDetalhamentoTopico);
     }
@@ -76,7 +76,7 @@ public class TopicoController {
     @Transactional
     @Operation(summary = "Atualizar/Editar Tópico por ID", description = "Atualizar/editar as informações publicadas no tópico selecionando o mesmo pelo ID.")
     public ResponseEntity atualizarTopico(@PathVariable Long id, @RequestBody DadosTopicoAtualizacao dados){
-        var dadosDetalhamentoTopico = forumService.atualizar(id, dados);
+        var dadosDetalhamentoTopico = topicoService.atualizar(id, dados);
         return ResponseEntity.ok(dadosDetalhamentoTopico);
     }
 
