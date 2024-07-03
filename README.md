@@ -17,12 +17,20 @@ Dentre os end points, está listado abaixo as possibilidades disponibilizadas pe
 
 1. Realizar Login
 1. Postar Tópico
+1. Cadastrar Usuário
+1. Postar Resposta
 1. Cadastrar Curso
 1. Listar Todos os Tópicos Postados
+1. Listar Usuários Cadastrados
+1. Listar Respostas de Tópicos Específicos
 1. Listar Todos os Tópicos por Curso e Ano de Publicação
 1. Listar Tópico por ID
 1. Excluir Tópico por ID
+1. Exclusão Lógica Usuário por ID
+1. Excluir Resposta por ID
 1. Atualizar/Editar Tópico por ID
+1. Atualizar/Editar Usuário por ID
+1. Atualizar/Editar Específica por ID
 1. Marcar Tópico Como Resolvido
 
 ## 📌 Dependências
