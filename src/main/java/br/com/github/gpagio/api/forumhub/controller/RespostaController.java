@@ -17,7 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 @RequestMapping("/respostas")
 @SecurityRequirement(name = "bearer-key")
-@Tag(name = "Resposta")
+@Tag(name = "Respostas")
 public class RespostaController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class RespostaController {
     @Transactional
     public ResponseEntity postar(@PathVariable Long idTopico, @RequestBody @Valid DadosRespostaPostagem dados, UriComponentsBuilder uriBuilder){
         var dadosDetalhamentoResposta = respostaService.postar(idTopico, dados);
-        var uri = uriBuilder.path("/topicos/{id}").buildAndExpand(dadosDetalhamentoResposta.id()).toUri();
+        var uri = uriBuilder.path("/respostas/{idResposta}").buildAndExpand(dadosDetalhamentoResposta.id()).toUri();
         return ResponseEntity.created(uri).body(dadosDetalhamentoResposta);
     }
 

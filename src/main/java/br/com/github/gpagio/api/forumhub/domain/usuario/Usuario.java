@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,6 +35,15 @@ public class Usuario implements UserDetails {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Resposta> respostas;
+
+    private Boolean ativo;
+
+    public Usuario(DadosUsuarioCadastro dados) {
+        this.nome = dados.nome().trim();
+        this.email = dados.email().trim();
+        this.senha = encoderSenha().encode(dados.senha().trim());
+        this.ativo = true;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -68,5 +78,19 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    private BCryptPasswordEncoder encoderSenha (){
+        return new BCryptPasswordEncoder();
+    }
+
+    public void desativar() {
+        this.ativo = false;
+    }
+
+    public void atualizar(DadosUsuarioAtualizacao dados) {
+        if (dados.nome() != null) this.nome = dados.nome().trim();
+        if (dados.email() != null) this.email = dados.email().trim();
+        if (dados.senha() != null) this.senha = encoderSenha().encode(dados.senha().trim());
     }
 }
