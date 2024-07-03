@@ -4,6 +4,6 @@ import br.com.github.gpagio.api.forumhub.domain.resposta.DadosRespostaAtualizaca
 
 public interface ValidadorDeAtualizacaoResposta {
 
-    void validar(Long idTopico, DadosRespostaAtualizacao dadosRespostaAtualizacao);
+    void validar(Long idResposta, DadosRespostaAtualizacao dadosRespostaAtualizacao);
 
 }

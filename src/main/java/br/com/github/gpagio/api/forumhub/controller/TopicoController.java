@@ -1,8 +1,8 @@
 package br.com.github.gpagio.api.forumhub.controller;
 
 import br.com.github.gpagio.api.forumhub.domain.TopicoService;
-import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoAtualizacao;
 import br.com.github.gpagio.api.forumhub.domain.topico.DadosDetalhamentoTopico;
+import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoAtualizacao;
 import br.com.github.gpagio.api.forumhub.domain.topico.DadosTopicoPostagem;
 import br.com.github.gpagio.api.forumhub.domain.topico.TopicoRepository;
 import io.swagger.v3.oas.annotations.Operation;

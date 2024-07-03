@@ -13,8 +13,9 @@ public class ValidadorAtualizacaoRespostaSolucaoRepetida implements ValidadorDeA
     private RespostaRepository respostaRepository;
 
     @Override
-    public void validar(Long idTopico, DadosRespostaAtualizacao dadosRespostaAtualizacao) {
-        if (dadosRespostaAtualizacao.solucao() != null && respostaRepository.optionalRespostaByIdTopicoAndSolucaoIgnoreCase(idTopico, dadosRespostaAtualizacao.solucao().trim()).isPresent()){
+    public void validar(Long idResposta, DadosRespostaAtualizacao dadosRespostaAtualizacao) {
+        var resposta = respostaRepository.getReferenceById(idResposta);
+        if (dadosRespostaAtualizacao.solucao() != null && respostaRepository.optionalRespostaByIdTopicoAndSolucaoIgnoreCase(resposta.getTopico().getId(), dadosRespostaAtualizacao.solucao().trim()).isPresent()){
             throw new ValidacaoException("Já existe uma resposta para este tópico com essa solução!");
         }
     }

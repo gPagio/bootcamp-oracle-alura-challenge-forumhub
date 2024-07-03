@@ -37,15 +37,11 @@ public class RespostaService {
         return new DadosDetalhamentoResposta(resposta);
     }
 
-    public DadosDetalhamentoResposta atualizar(Long idTopico, Long idResposta, DadosRespostaAtualizacao dados) {
-        if (!topicoRepository.existsById(idTopico)) throw new ValidacaoException("Nenhum tópico encontrado com o ID fornecido!");
+    public DadosDetalhamentoResposta atualizar(Long idResposta, DadosRespostaAtualizacao dados) {
+        if (!respostaRepository.existsById(idResposta)) throw new ValidacaoException("Nenhuma resposta encontrada com o ID fornecido!");
 
-        validadorDeAtualizacaoRespostas.forEach(validador -> validador.validar(idTopico, dados));
-
-        var optionalResposta = respostaRepository.getReferenceByIdAndTopicoId(idTopico, idResposta);
-        if (optionalResposta.isEmpty()) throw new ValidacaoException("Nenhuma resposta encontrada para os IDs de tópico e resposta fornecidos!");
-
-        var resposta = optionalResposta.get();
+        validadorDeAtualizacaoRespostas.forEach(validador -> validador.validar(idResposta, dados));
+        var resposta = respostaRepository.getReferenceById(idResposta);
         resposta.atualizar(dados);
 
         return new DadosDetalhamentoResposta(resposta);

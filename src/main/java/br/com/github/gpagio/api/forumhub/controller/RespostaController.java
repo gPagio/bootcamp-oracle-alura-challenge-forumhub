@@ -1,9 +1,7 @@
 package br.com.github.gpagio.api.forumhub.controller;
 
 
-import br.com.github.gpagio.api.forumhub.domain.ValidacaoException;
 import br.com.github.gpagio.api.forumhub.domain.resposta.*;
-import br.com.github.gpagio.api.forumhub.domain.topico.TopicoRepository;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -42,10 +40,10 @@ public class RespostaController {
         return ResponseEntity.created(uri).body(dadosDetalhamentoResposta);
     }
 
-    @PutMapping("/{idTopico}/{idResposta}")
+    @PutMapping("/{idResposta}")
     @Transactional
-    public ResponseEntity atualizar(@PathVariable Long idTopico, @PathVariable Long idResposta, @RequestBody DadosRespostaAtualizacao dados){
-        var dadosDetalhamentoResposta = respostaService.atualizar(idTopico, idResposta, dados);
+    public ResponseEntity atualizar(@PathVariable Long idResposta, @RequestBody DadosRespostaAtualizacao dados){
+        var dadosDetalhamentoResposta = respostaService.atualizar(idResposta, dados);
         return ResponseEntity.ok(dadosDetalhamentoResposta);
     }
 
