@@ -2,6 +2,7 @@ package br.com.github.gpagio.api.forumhub.domain.resposta;
 
 import br.com.github.gpagio.api.forumhub.domain.ValidacaoException;
 import br.com.github.gpagio.api.forumhub.domain.resposta.validacoes.atualizacao.ValidadorDeAtualizacaoResposta;
+import br.com.github.gpagio.api.forumhub.domain.resposta.validacoes.exclusao.ValidadorDeExclusaoResposta;
 import br.com.github.gpagio.api.forumhub.domain.resposta.validacoes.postagem.ValidadorDePostagemDeResposta;
 import br.com.github.gpagio.api.forumhub.domain.topico.TopicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class RespostaService {
     @Autowired
     private List<ValidadorDeAtualizacaoResposta> validadorDeAtualizacaoRespostas;
 
+    @Autowired
+    private List<ValidadorDeExclusaoResposta> validadorDeExclusaoRespostas;
+
     public DadosDetalhamentoResposta postar(Long idTopico, DadosRespostaPostagem dados) {
         if (!topicoRepository.existsById(idTopico)) throw new ValidacaoException("Nenhum tópico encontrado com o ID fornecido!");
 
@@ -45,5 +49,13 @@ public class RespostaService {
         resposta.atualizar(dados);
 
         return new DadosDetalhamentoResposta(resposta);
+    }
+
+    public void excluir(Long idResposta) {
+        if (!respostaRepository.existsById(idResposta)) throw new ValidacaoException("Nenhuma resposta encontrada com o ID fornecido!");
+
+        validadorDeExclusaoRespostas.forEach(validador -> validador.validar(idResposta));
+
+        respostaRepository.deleteById(idResposta);
     }
 }

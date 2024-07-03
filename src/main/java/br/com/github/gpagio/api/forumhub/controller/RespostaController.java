@@ -47,10 +47,11 @@ public class RespostaController {
         return ResponseEntity.ok(dadosDetalhamentoResposta);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{idResposta}")
     @Transactional
-    public void excluir(){
-
+    public ResponseEntity excluir(@PathVariable Long idResposta){
+        respostaService.excluir(idResposta);
+        return ResponseEntity.noContent().build();
     }
 
 }
