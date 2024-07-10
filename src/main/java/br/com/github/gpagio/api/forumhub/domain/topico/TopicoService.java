@@ -47,7 +47,7 @@ public class TopicoService {
             if (!cursoRepository.existsById(dados.idCurso())){
                 throw new ValidacaoException("Nenhum curso cadastrado com o ID informado!");
             } else {
-                curso = cursoRepository.getReferenceById(dados.idCurso());
+                curso = cursoRepository.findById(dados.idCurso()).get();
             }
         }
 
