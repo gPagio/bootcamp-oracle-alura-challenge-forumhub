@@ -7,31 +7,17 @@ O objetivo deste desafio foi proporcionar uma experiência real no mundo do dese
 No [`último projeto`](https://github.com/gPagio/bootcamp-oracle-alura-challenge-literalura) construído proposto pelo Oracle One, os dados eram oriundos da API Gutendex. O projeto atual gera os próprios dados, já que o mesmo possui todos os `endpoints` necessários para realizar um CRUD. Vale a pena mencionar que essa API persiste os dados em um banco de dados `MySQL` por meio da API do `Spring Boot` que se chama `Spring Data JPA`.
 
 ## 📝 End Points
+### 🟢 Swagger
 Os end points dessa API estão mapeados com o Swagger. Para acessar esse mapeamento, rode o projeto e entre em:
 
 ```
 http://localhost:8080/swagger-ui/index.html#/
 ```
 
-Dentre os end points, está listado abaixo as possibilidades disponibilizadas pelos mesmos:
+### 🐶 Bruno
+Além do Swagger, na pasta raiz do projeto existe uma pasta chamada endpoints, onde a mesma possui todos os endpoints usados para testar a API.
 
-1. Realizar Login
-1. Postar Tópico
-1. Cadastrar Usuário
-1. Postar Resposta
-1. Cadastrar Curso
-1. Listar Todos os Tópicos Postados
-1. Listar Usuários Cadastrados
-1. Listar Respostas de Tópicos Específicos
-1. Listar Todos os Tópicos por Curso e Ano de Publicação
-1. Listar Tópico por ID
-1. Excluir Tópico por ID
-1. Exclusão Lógica Usuário por ID
-1. Excluir Resposta por ID
-1. Atualizar/Editar Tópico por ID
-1. Atualizar/Editar Usuário por ID
-1. Atualizar/Editar Específica por ID
-1. Marcar Tópico Como Resolvido
+Para fazer o uso desses arquivos intale o [`Bruno`](https://www.usebruno.com/) e importe a coleção de endpoints (pasta mencionada anteriormente) pelo botão `Open Collection`, o qual pode ser encontrado clicando em três pontinhos do lado esquerdo da tela.
 
 ## 📌 Dependências
 Para o correto funcionamento do Fórum Hub, é necessário realizar a instalação das dependências abaixo. Clique no hyperlink em cada uma delas para ir a respectiva página de downloads.
