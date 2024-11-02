@@ -1,0 +1,15 @@
+meta {
+  name: Listar Todos os Usuários
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{host}}/usuarios?ativo=false
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ativo: false
+}

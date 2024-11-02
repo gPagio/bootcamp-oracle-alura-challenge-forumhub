@@ -1,0 +1,17 @@
+meta {
+  name: Atualizar Tópico Específico
+  type: http
+  seq: 15
+}
+
+put {
+  url: {{host}}/topicos/3
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "idCurso":1
+  }
+}

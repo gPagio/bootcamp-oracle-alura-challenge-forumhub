@@ -1,0 +1,18 @@
+meta {
+  name: Cadastrar Curso
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{host}}/cursos
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "nome":"Curso de React",
+      "categoriaCurso":"FRONTEND"
+  }
+}

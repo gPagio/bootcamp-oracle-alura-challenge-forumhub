@@ -1,0 +1,19 @@
+meta {
+  name: Postar Tópico
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{host}}/topicos
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "titulo":"Erro JPA",
+      "mensagem":"Mapeamento de entidades",
+      "idCurso":2
+  }
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Fazer Login
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{host}}/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email":"guilherme@forum.com",
+    "senha":"12345"
+  }
+}

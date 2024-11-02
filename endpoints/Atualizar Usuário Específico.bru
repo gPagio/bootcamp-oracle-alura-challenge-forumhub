@@ -1,0 +1,17 @@
+meta {
+  name: Atualizar Usuário Específico
+  type: http
+  seq: 16
+}
+
+put {
+  url: {{host}}/usuarios/3
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "senha":1111
+  }
+}

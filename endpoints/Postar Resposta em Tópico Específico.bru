@@ -1,0 +1,18 @@
+meta {
+  name: Postar Resposta em Tópico Específico
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{host}}/respostas/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mensagem":"Poura meu",
+      "solucao":"Seleko cahoeira"
+  }
+}

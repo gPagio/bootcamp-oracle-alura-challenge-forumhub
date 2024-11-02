@@ -1,0 +1,17 @@
+meta {
+  name: Atualizar Resposta Específica
+  type: http
+  seq: 17
+}
+
+put {
+  url: {{host}}/respostas/3
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "solucao":"Sapo não lava o pu"
+  }
+}

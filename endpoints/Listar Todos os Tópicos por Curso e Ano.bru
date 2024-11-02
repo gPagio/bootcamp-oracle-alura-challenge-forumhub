@@ -1,0 +1,16 @@
+meta {
+  name: Listar Todos os Tópicos por Curso e Ano
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{host}}/topicos/?curso=curso de react&ano=2024
+  body: none
+  auth: inherit
+}
+
+params:query {
+  curso: curso de react
+  ano: 2024
+}
